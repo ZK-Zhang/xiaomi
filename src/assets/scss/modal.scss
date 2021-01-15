@@ -1,0 +1,87 @@
+.modal{
+  @include positionTop(fixed);
+  z-index: 10;
+  transition: all .5s;
+  &.fade-enter-active{
+    top: 0
+  }
+  &.fade-leave-active{
+    top: -100%
+  }
+  &.fade-enter{
+    top: -100%
+  }
+
+  .mask{
+    @include positionTop(fixed);
+    background: $colorI;
+    opacity: .5;
+  }
+  .box{
+    @include positionAline(absolute,40%,50%,-50%,-50%);
+    height: auto;
+    background: $colorG;
+    .box-header{
+      font-size: $fontI;
+      padding-left: 30px;
+      background: $colorJ;
+      .icon-close{
+        position: absolute;
+        top: 23px;
+        right: 25px;
+        width: 14px;
+        height: 14px;
+        background: url("/imgs/icon-close.png") no-repeat center;
+        background-size: cover;
+        transition: transform .3s;
+        &:hover{
+          transform: scale(1.5);
+        }
+      }
+    }
+    .box-content{
+      padding: 42px 40px 54px;
+      font-size: $fontJ;
+    }
+    .box-footer{
+      height: 72px;
+      line-height: 72px;
+      text-align: center;
+      .btn1{
+        @include btn(110px,30px,$colorA);
+        margin-right: 15px;
+      }
+      .btn2{
+        @include btn();
+      }
+    }
+  }
+  .small{
+    width:330px;
+    .box-header{
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+  .middle{
+    width:550px;
+    .box-header{
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+  .large{
+    width:770px;
+    .box-header{
+      height: 70px;
+      line-height: 70px;
+    }
+  }
+  .from{
+    width:660px;
+    .box-header{
+      height: 60px;
+      line-height: 60px;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+// flex复用
+@mixin flex($hov:space-between,$col:center) {
+  display: flex;
+  justify-content: $hov;
+  align-items: $col
+}
+
+//背景图片
+@mixin bgImg($w:16px,$h:12px,$url:'',$bgSize:contain) {
+    display: inline-block;
+    width: $w;
+    height: $h;
+    background: url($url) no-repeat center;
+    background-size: $bgSize;
+}
+
+// 全局定位
+@mixin positionTop($pot:absolute,$t:0,$l:0,$w:100%,$h:100%){
+  position: $pot;
+  top: $t;
+  left: $l;
+  width: $w;
+  height: $h;
+}
+
+// 定位对齐
+@mixin positionAline($pot:absolute,$t:0,$l:0,$x:0,$y:0){
+  position: $pot;
+  top: $t;
+  left: $l;
+  transform: translate($x,$y);
+}
+
+// 按钮配置
+@mixin btn($w:110px,$lh:30px,$bc:#B0B0B0,$cl:#ffffff){
+  display: inline-block;
+  width: $w;
+  line-height: $lh;
+  text-align: center;
+  background-color: $bc;
+  color: $cl;
+  border: none;
+  cursor: pointer
+}
