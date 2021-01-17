@@ -2,6 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLazyload from'vue-lazyload'
+import VueCookie from 'vue-cookie'
 import App from './App.vue'
 import router from './router'
 
@@ -17,11 +18,13 @@ axios.interceptors.response.use(function(response){
   }else if(res.status == 10){
     window.location.href = '/#/login'
   }else{
-    console.log('登陆失败')
+    alert('登录失败')
+    return Promise.reject(res)
   }
 })
 
 Vue.use(VueAxios,axios)
+Vue.use(VueCookie)
 Vue.use(VueLazyload,{
   loading:'/imgs/loading-svg/loading-bubbles.svg'
 })

@@ -14,8 +14,8 @@
             <a href="javascript:;">扫码登录</a>
           </div>
           <div class="form-middle">
-            <input type="text" name="user" placeholder="请输入账号">
-            <input type="password" name="pwd" placeholder="请输入密码">
+            <input type="text" name="user" placeholder="请输入账号" v-model="username">
+            <input type="password" name="pwd" placeholder="请输入密码" v-model="password">
           </div>
           <div class="form-footer">
             <div class="but">
@@ -53,7 +53,26 @@
 
 <script>
 export default {
-  name: 'Login'
+  name: 'Login',
+  data(){
+    return {
+      username: '',
+      password: '',
+      userId: ''
+    }
+  },
+  methods: {
+    login(){
+      let { username,password } = this
+      this.axios.post('/user/login',{
+        username,
+        password
+      }).then((res) => {
+        this.$cookie.set('userId',res.id,{expires:'1M'})
+        this.$router.push('/#')
+      })
+    }
+  }
 }
 </script>
 
