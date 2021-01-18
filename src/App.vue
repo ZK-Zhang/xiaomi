@@ -11,12 +11,12 @@ export default {
   methods: {
     getUserInformation(){
       this.axios.get('/user').then((res) => {
-        console.log(res)
+        this.$store.dispatch('storageUsername',res.username)
       })
     },
     getCartSum(){
       this.axios.get('/carts/products/sum').then((res)=>{
-        console.log(res)
+        this.$store.dispatch('storageCartSum',res)
       })
     }
   },

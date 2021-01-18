@@ -5,6 +5,7 @@ import VueLazyload from'vue-lazyload'
 import VueCookie from 'vue-cookie'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 
 // 接口跨域
 axios.defaults.baseURL = '/api'
@@ -17,6 +18,7 @@ axios.interceptors.response.use(function(response){
     return res.data
   }else if(res.status == 10){
     window.location.href = '/#/login'
+    return Promise.reject(res)
   }else{
     alert('登录失败')
     return Promise.reject(res)
@@ -32,5 +34,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

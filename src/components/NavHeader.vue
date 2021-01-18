@@ -13,7 +13,7 @@
           <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-if="!username">注册</a>
           <a href="javascript:;" v-if="username">个人订单</a>
-          <a href="javascript:;" class="my-cart" @click="cart"><span class="icon-cart"></span>购物车</a>
+          <a href="javascript:;" class="my-cart" @click="cart"><span class="icon-cart"></span>购物车({{CartSum}})</a>
         </div>
       </div>
     </div>
@@ -116,13 +116,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'NavHeader',
   data () {
     return {
-      phoneList: [],
-      username: ''
+      phoneList: []
     }
+  },
+  computed: {
+    ...mapState(['username','CartSum'])
   },
   methods: {
     getPhoneList () {

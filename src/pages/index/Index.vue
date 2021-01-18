@@ -166,6 +166,7 @@
         <p class="modal-content">商品添加成功</p>
       </template>
     </modal>
+    <service-bar></service-bar>
   </div>
 </template>
 
@@ -173,6 +174,7 @@
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import Modal from '../../components/Modal'
+import ServiceBar from '../../components/ServiceBar'
 export default {
   name: 'Index',
   data(){
@@ -329,7 +331,8 @@ export default {
   components: {
     swiper,
     swiperSlide,
-    Modal
+    Modal,
+    ServiceBar
   },
   methods: {
     getPhoneList(){
